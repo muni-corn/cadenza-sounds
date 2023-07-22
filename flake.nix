@@ -32,8 +32,10 @@
             };
         in
         {
-          packages.muse-sounds = package;
-          defaultPackage = package;
+          packages = {
+            default = package;
+            muse-sounds = package;
+          };
         }
       );
     in
@@ -41,7 +43,7 @@
       inherit (allSystems) packages defaultPackage;
       overlay = final: prev: {
         muse-sounds =
-          allSystems.packages.${final.system}.muse-sounds;
+          allSystems.packages.${prev.system}.muse-sounds;
       };
     };
 }
