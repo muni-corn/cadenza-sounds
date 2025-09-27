@@ -19,13 +19,13 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          pname = "muse-sounds";
+          pname = "cadenza-sounds";
           version = "0.2.2";
 
           # define the source path clearly
           src = builtins.path {
             path = ./.;
-            name = "muse-sounds-src";
+            name = "cadenza-sounds-src";
           };
 
           package =
@@ -44,7 +44,7 @@
               }
               ''
                 # the build script: $out is the destination directory
-                echo "installing muse sounds to $out..."
+                echo "installing cadenza sounds to $out..."
                 mkdir -pv $out/share/sounds/
 
                 # copy the specific directory from the source
@@ -61,7 +61,7 @@
     // {
       # provide the overlay as before
       overlay = final: prev: {
-        muse-sounds = self.packages.${prev.system}.default;
+        cadenza-sounds = self.packages.${prev.system}.default;
       };
     };
 }
