@@ -48,7 +48,7 @@
                 mkdir -pv $out/share/sounds/
 
                 # copy the specific directory from the source
-                cp -rv ${src}/musicaloft $out/share/sounds/
+                cp -rv ${src}/cadenza $out/share/sounds/
                 echo "done!"
               ''; # end of build script
         in
